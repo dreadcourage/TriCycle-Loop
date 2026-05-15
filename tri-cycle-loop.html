@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRI Cycle LOOP · Closed-loop hospitality interiors for Bali</title>
+<meta name="description" content="Your hotel's waste comes back as your hotel's furniture. TRI Cycle LOOP closes the circular hospitality loop in Bali.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   TRI CYCLE LOOP – website
+   palette, type system, layout primitives
+   ========================================================= */
+
+:root{
+  --forest:#1F3D38;
+  --forest-dk:#122622;
+  --forest-darker:#0A1614;
+  --terra:#B85042;
+  --terra-dk:#8E3A2E;
+  --terra-lt:#D26B5D;
+  --cream:#F2E9D6;
+  --cream-dk:#E6D8BE;
+  --cream-lt:#F8F2E5;
+  --ink:#1B120A;
+  --ink-soft:#3A2D1F;
+  --gold:#B8893C;
+  --gold-lt:#D4A55C;
+  --muted:#6B5D4A;
+  --white:#ffffff;
+
+  --serif:'Fraunces', 'Cambria', Georgia, serif;
+  --sans:'Inter', 'Segoe UI', system-ui, sans-serif;
+
+  --rad-s:8px;
+  --rad-m:16px;
+  --rad-l:28px;
+  --rad-xl:48px;
+
+  --pad-section:clamp(4rem, 9vw, 9rem);
+  --pad-x:clamp(1.5rem, 5vw, 5rem);
+  --content-w:1320px;
+
+  --ease-out:cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft:cubic-bezier(0.45, 0, 0.55, 1);
+  --t-slow:1.2s;
+  --t-med:0.6s;
+  --t-fast:0.3s;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth;background:var(--cream);}
+html, body{overflow-x:hidden;}
+
+body{
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.65;
+  color:var(--ink);
+  background:var(--cream);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;border:none;background:none;cursor:pointer;color:inherit;}
+
+/* ----------------------------------------------------------
+   TYPE SYSTEM
+   ---------------------------------------------------------- */
+.display{
+  font-family:var(--serif);
+  font-weight:300;
+  font-variation-settings:"opsz" 144, "SOFT" 50;
+  line-height:0.95;
+  letter-spacing:-0.025em;
+}
+.eyebrow{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:.72rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+}
+.kicker{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+  color:var(--terra);
+}
+
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.05;letter-spacing:-0.015em;}
+h1{font-size:clamp(3rem, 8.5vw, 7.2rem);}
+h2{font-size:clamp(2.4rem, 5.6vw, 4.6rem);}
+h3{font-size:clamp(1.6rem, 2.8vw, 2.4rem);}
+h4{font-size:clamp(1.2rem, 2vw, 1.5rem);}
+
+p.lede{font-size:clamp(1.05rem, 1.4vw, 1.3rem); line-height:1.65; max-width:62ch;}
+p{max-width:65ch;}
+
+/* ----------------------------------------------------------
+   NAV
+   ---------------------------------------------------------- */
+.nav{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1.1rem var(--pad-x);
+  background:rgba(31, 61, 56, 0.04);
+  backdrop-filter:blur(20px) saturate(140%);
+  -webkit-backdrop-filter:blur(20px) saturate(140%);
+  border-bottom:1px solid rgba(255,255,255,.04);
+  transition:background var(--t-med) var(--ease-out), border-color var(--t-med);
+}
+.nav.scrolled{
+  background:rgba(242,233,214,.92);
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+.nav__logo{
+  font-family:var(--serif); font-weight:400; font-size:1.25rem; letter-spacing:-0.01em;
+  color:var(--cream); transition:color var(--t-med);
+}
+.nav.scrolled .nav__logo{color:var(--ink);}
+.nav__logo b{color:var(--terra-lt);font-weight:600;}
+.nav.scrolled .nav__logo b{color:var(--terra);}
+.nav__links{display:flex; gap:2rem; font-size:.85rem; font-weight:500;}
+.nav__links a{color:var(--cream); opacity:.85; transition:opacity var(--t-fast), color var(--t-med);}
+.nav.scrolled .nav__links a{color:var(--ink-soft);}
+.nav__links a:hover{opacity:1; color:var(--terra-lt);}
+.nav.scrolled .nav__links a:hover{color:var(--terra);}
+@media (max-width:720px){.nav__links{display:none;}}
+
+/* ----------------------------------------------------------
+   HERO
+   ---------------------------------------------------------- */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex; align-items:center;
+  padding:8rem var(--pad-x) 6rem;
+  overflow:hidden;
+  color:var(--cream);
+  background:var(--forest-darker);
+}
+.hero__bg{
+  position:absolute; inset:0; z-index:0;
+  background:url('imgs/bali_aerial.jpg') center / cover no-repeat;
+  will-change:transform;
+  filter:saturate(0.85) contrast(0.95);
+}
+.hero__bg::after{
+  content:'';
+  position:absolute; inset:0;
+  background:
+    linear-gradient(120deg, rgba(10,22,20,0.92) 0%, rgba(10,22,20,0.6) 45%, rgba(10,22,20,0.25) 100%),
+    linear-gradient(180deg, rgba(10,22,20,0.4) 0%, transparent 30%, rgba(10,22,20,0.7) 100%);
+}
+.hero__inner{
+  position:relative; z-index:2;
+  max-width:var(--content-w); margin:0 auto;
+  width:100%;
+  display:grid; gap:2.5rem;
+}
+.hero__eyebrow{
+  color:var(--gold-lt);
+  display:inline-flex; align-items:center; gap:.7rem;
+}
+.hero__eyebrow::before{content:''; width:30px; height:1px; background:var(--gold-lt); display:inline-block;}
+.hero h1{
+  font-weight:300;
+  font-variation-settings:"opsz" 144, "SOFT" 100;
+}
+.hero h1 .accent{
+  color:var(--terra-lt);
+  font-style:italic;
+  font-weight:400;
+}
+.hero__tagline{
+  font-family:var(--serif); font-style:italic; font-weight:400;
+  font-size:clamp(1.3rem, 2.4vw, 1.9rem);
+  color:var(--cream);
+  opacity:.92;
+  max-width:46ch;
+  line-height:1.4;
+}
+.hero__rule{
+  width:80px; height:2px; background:var(--terra); display:block;
+}
+.hero__meta{
+  display:flex; gap:1.6rem; align-items:center; flex-wrap:wrap;
+  font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; font-weight:500;
+  color:var(--cream); opacity:.7;
+}
+.hero__meta span{display:inline-flex; align-items:center;}
+.hero__meta span::after{content:'·'; margin-left:1.6rem; color:var(--gold-lt);}
+.hero__meta span:last-child::after{display:none;}
+.hero__scroll{
+  position:absolute; left:50%; bottom:2rem; transform:translateX(-50%);
+  z-index:3;
+  font-size:.7rem; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--cream); opacity:.6;
+  display:flex; flex-direction:column; align-items:center; gap:.7rem;
+  animation:scrollHint 2.5s ease-in-out infinite;
+}
+.hero__scroll::after{
+  content:''; width:1px; height:36px;
+  background:linear-gradient(to bottom, var(--cream), transparent);
+}
+@keyframes scrollHint{
+  0%,100%{transform:translate(-50%, 0); opacity:.6;}
+  50%{transform:translate(-50%, 6px); opacity:.95;}
+}
+
+/* ----------------------------------------------------------
+   SECTION PRIMITIVES
+   ---------------------------------------------------------- */
+section{position:relative;}
+
+.section{
+  padding:var(--pad-section) var(--pad-x);
+}
+.container{
+  max-width:var(--content-w);
+  margin:0 auto;
+  width:100%;
+}
+.section--cream{background:var(--cream);color:var(--ink);}
+.section--forest{background:var(--forest);color:var(--cream);}
+.section--dark{background:var(--forest-darker);color:var(--cream);}
+
+.section__head{margin-bottom:clamp(3rem, 6vw, 5rem); display:grid; gap:1rem;}
+.section__head .eyebrow{color:var(--terra);}
+.section--forest .section__head .eyebrow,
+.section--dark .section__head .eyebrow{color:var(--gold-lt);}
+.section__head h2{max-width:18ch;}
+.section__rule{width:80px; height:2px; background:var(--terra); margin-top:.7rem;}
+
+/* shared reveal-on-scroll */
+[data-reveal]{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity 1s var(--ease-out), transform 1s var(--ease-out);
+}
+[data-reveal].in{opacity:1; transform:translateY(0);}
+[data-reveal-delay="1"].in{transition-delay:.1s;}
+[data-reveal-delay="2"].in{transition-delay:.2s;}
+[data-reveal-delay="3"].in{transition-delay:.3s;}
+[data-reveal-delay="4"].in{transition-delay:.4s;}
+[data-reveal-delay="5"].in{transition-delay:.5s;}
+
+/* ----------------------------------------------------------
+   PROBLEM SECTION (the big stat)
+   ---------------------------------------------------------- */
+.problem{padding:var(--pad-section) var(--pad-x); background:var(--forest-darker); color:var(--cream); position:relative; overflow:hidden;}
+.problem__bg{
+  position:absolute; inset:0; z-index:0;
+  background:url('imgs/waste_ocean.jpg') center / cover no-repeat;
+  opacity:.22;
+  filter:blur(2px);
+}
+.problem__inner{position:relative; z-index:2; max-width:var(--content-w); margin:0 auto;}
+.stat-hero{display:grid; gap:2rem; margin-bottom:5rem;}
+.stat-hero__number{
+  font-family:var(--serif);
+  font-weight:300;
+  font-variation-settings:"opsz" 144, "SOFT" 100;
+  font-size:clamp(8rem, 22vw, 20rem);
+  line-height:.85;
+  letter-spacing:-0.04em;
+  color:var(--cream);
+  font-feature-settings:"tnum";
+}
+.stat-hero__unit{
+  font-family:var(--serif); font-style:italic; font-weight:400;
+  font-size:clamp(1.6rem, 3.6vw, 3rem);
+  color:var(--terra-lt);
+  line-height:1.1;
+}
+.stat-hero__sub{
+  font-family:var(--serif); font-weight:400; font-style:italic;
+  font-size:clamp(1.2rem, 2vw, 1.6rem);
+  color:var(--cream); opacity:.85; max-width:48ch; line-height:1.4;
+}
+
+.problem-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:2rem;
+  margin-top:3rem;
+}
+@media (max-width:840px){.problem-grid{grid-template-columns:1fr;}}
+.problem-card{
+  padding:2.5rem;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--rad-m);
+  backdrop-filter:blur(8px);
+  display:grid; gap:1.2rem;
+}
+.problem-card__no{
+  font-family:var(--serif); font-style:italic; font-weight:400;
+  font-size:3.2rem; color:var(--terra-lt); line-height:1;
+}
+.problem-card h3{color:var(--cream); font-style:italic;}
+.problem-card ul{list-style:none; display:grid; gap:.8rem; margin-top:.5rem;}
+.problem-card li{
+  font-size:.95rem; line-height:1.5; color:var(--cream); opacity:.85;
+  padding-left:1.1rem; position:relative;
+}
+.problem-card li::before{
+  content:''; position:absolute; left:0; top:.65em;
+  width:6px; height:6px; background:var(--gold); border-radius:50%;
+}
+
+.bridge{
+  text-align:center;
+  margin-top:5rem;
+  font-family:var(--serif); font-style:italic; font-weight:400;
+  font-size:clamp(1.4rem, 2.4vw, 2rem);
+  color:var(--terra-lt);
+}
+
+/* ----------------------------------------------------------
+   SOLUTION / INTRO LOOP
+   ---------------------------------------------------------- */
+.intro{
+  padding:var(--pad-section) var(--pad-x);
+  background:var(--cream);
+  position:relative; overflow:hidden;
+}
+.intro__grid{
+  max-width:var(--content-w); margin:0 auto;
+  display:grid; grid-template-columns:1.2fr 1fr; gap:5rem; align-items:center;
+}
+@media (max-width:980px){.intro__grid{grid-template-columns:1fr;}}
+.intro__title{display:grid; gap:1.4rem;}
+.intro__title h2{font-weight:300;}
+.intro__title .brand-mark{
+  font-family:var(--serif); font-weight:300;
+  font-variation-settings:"opsz" 144, "SOFT" 80;
+  font-size:clamp(3.6rem, 8vw, 7rem);
+  line-height:.95; letter-spacing:-.03em; color:var(--ink);
+}
+.intro__title .brand-mark .accent{color:var(--terra); font-style:italic; font-weight:400;}
+.intro__quote{
+  font-family:var(--serif); font-style:italic; font-weight:500;
+  font-size:clamp(1.4rem, 2.4vw, 2rem);
+  color:var(--terra); line-height:1.35;
+  padding:2.2rem 0 0; border-top:1px solid rgba(0,0,0,0.1);
+  margin-top:1.5rem;
+  max-width:none;
+}
+.intro__quote::before{
+  content:'\201C';
+  font-size:4rem; line-height:0;
+  color:var(--gold); display:block;
+  margin-bottom:.5rem; margin-left:-.2rem;
+}
+.intro__image{
+  position:relative;
+  border-radius:var(--rad-m);
+  overflow:hidden;
+  aspect-ratio:4/5;
+  box-shadow:0 30px 80px -30px rgba(31,61,56,0.4);
+}
+.intro__image img{
+  width:100%; height:100%; object-fit:cover;
+  transition:transform 1.2s var(--ease-out);
+}
+.intro__image:hover img{transform:scale(1.04);}
+.intro__image::after{
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, transparent 50%, rgba(184,80,66,0.15));
+}
+.intro__caption{
+  position:absolute; bottom:1.5rem; left:1.5rem; right:1.5rem;
+  color:var(--cream); z-index:2;
+  font-family:var(--serif); font-style:italic; font-size:.95rem;
+  text-shadow:0 1px 8px rgba(0,0,0,.5);
+}
+
+/* ----------------------------------------------------------
+   LOOP DIAGRAM (animated SVG)
+   ---------------------------------------------------------- */
+.loop-section{
+  padding:var(--pad-section) var(--pad-x);
+  background:var(--forest);
+  color:var(--cream);
+  position:relative;
+  overflow:hidden;
+}
+.loop-section::before{
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(184,137,60,.08), transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(184,80,66,.1), transparent 50%);
+}
+.loop-section__inner{max-width:var(--content-w); margin:0 auto; position:relative;}
+.loop-stage{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:1rem;
+  margin-top:4rem;
+  align-items:start;
+}
+@media (max-width:900px){.loop-stage{grid-template-columns:1fr 1fr;}}
+.loop-node{
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  position:relative;
+  padding:1.5rem 1rem;
+}
+.loop-node__num{
+  font-family:var(--serif); font-style:italic; font-weight:400;
+  color:var(--gold-lt);
+  font-size:1rem;
+  letter-spacing:.1em;
+  margin-bottom:1rem;
+  opacity:.8;
+}
+.loop-node__circle{
+  width:clamp(110px, 14vw, 175px);
+  height:clamp(110px, 14vw, 175px);
+  border-radius:50%;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  color:var(--cream);
+  font-family:var(--serif); font-weight:400;
+  position:relative;
+  margin-bottom:1.2rem;
+  transition:transform var(--t-med) var(--ease-out), box-shadow var(--t-med);
+  box-shadow:0 12px 50px -10px rgba(0,0,0,.5);
+}
+.loop-node__circle::after{
+  content:''; position:absolute; inset:-12px;
+  border:1px solid currentColor; border-radius:50%; opacity:.25;
+}
+.loop-node:hover .loop-node__circle{transform:scale(1.06);}
+.loop-node--hotel-out .loop-node__circle{background:linear-gradient(135deg, #2A4F49, #143430);}
+.loop-node--rekynd  .loop-node__circle{background:linear-gradient(135deg, var(--terra), var(--terra-dk));}
+.loop-node--tri     .loop-node__circle{background:linear-gradient(135deg, var(--gold-lt), var(--gold));}
+.loop-node--hotel-in .loop-node__circle{background:linear-gradient(135deg, #2A4F49, #143430);}
+.loop-node__name{font-size:clamp(1rem, 1.6vw, 1.4rem); letter-spacing:.06em; text-transform:uppercase; font-weight:500;}
+.loop-node__role{
+  font-family:var(--sans); font-size:.78rem; letter-spacing:.06em;
+  margin-top:.4rem; opacity:.85; font-weight:400;
+}
+.loop-node__desc{
+  font-size:.9rem; line-height:1.5; color:var(--cream); opacity:.78;
+  font-family:var(--sans); max-width:24ch;
+}
+.loop-arrow{
+  position:absolute; top:calc(clamp(110px, 14vw, 175px) / 2 + 1.5rem + 16px);
+  left:calc(100% - 0.4rem);
+  width:calc(2rem + 0.4rem);
+  height:2px; background:var(--gold);
+  z-index:0;
+}
+.loop-arrow::after{
+  content:''; position:absolute; right:-1px; top:-5px;
+  border-left:10px solid var(--gold);
+  border-top:6px solid transparent; border-bottom:6px solid transparent;
+}
+.loop-node:last-child .loop-arrow{display:none;}
+@media (max-width:900px){.loop-arrow{display:none;}}
+
+.loop-qr-callout{
+  display:flex; gap:1.4rem; align-items:center;
+  max-width:560px;
+  margin:4.5rem auto 0;
+  padding:1.6rem 2rem;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--rad-m);
+  backdrop-filter:blur(8px);
+}
+.loop-qr-callout .qr{
+  flex-shrink:0;
+  width:78px; height:78px;
+  background:var(--cream);
+  border-radius:6px; padding:7px;
+}
+.loop-qr-callout .qr svg{width:100%; height:100%;}
+.loop-qr-callout h4{font-family:var(--serif); font-style:italic; font-size:1.2rem; color:var(--cream); margin-bottom:.3rem;}
+.loop-qr-callout p{font-size:.9rem; color:var(--cream); opacity:.8; max-width:none; line-height:1.5;}
+
+.loop-closes-here{
+  text-align:center; margin-top:3.5rem;
+  font-family:var(--serif); font-weight:400; font-style:italic;
+  font-size:clamp(1.3rem, 2.2vw, 1.8rem);
+  color:var(--gold-lt);
+}
+.loop-closes-here .loop-glyph{
+  display:inline-block; transition:transform 4s linear;
+  font-size:1.2em; vertical-align:middle; margin-left:.4em;
+}
+.loop-closes-here:hover .loop-glyph{transform:rotate(360deg);}
+
+/* ----------------------------------------------------------
+   DESIGNER (the interactive mini-game)
+   ---------------------------------------------------------- */
+.designer{
+  padding:var(--pad-section) var(--pad-x);
+  background:var(--cream);
+  color:var(--ink);
+  position:relative;
+  overflow:hidden;
+}
+.designer::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:200px;
+  background:linear-gradient(to bottom, var(--forest), transparent);
+  opacity:.05;
+}
+.designer__head{max-width:var(--content-w); margin:0 auto 3rem; position:relative;}
+.designer__head .eyebrow{color:var(--terra);}
+.designer__head h2{font-weight:300;}
+.designer__head h2 .accent{color:var(--terra); font-style:italic;}
+.designer__head p.lede{margin-top:1.4rem; color:var(--ink-soft);}
+
+.designer__stage{
+  max-width:var(--content-w); margin:0 auto;
+  display:grid; grid-template-columns:280px 1fr; gap:2rem;
+}
+@media (max-width:980px){.designer__stage{grid-template-columns:1fr;}}
+
+/* INVENTORY: waste types */
+.inventory{
+  display:grid; gap:.8rem;
+  background:var(--white); border:1px solid rgba(0,0,0,0.08);
+  border-radius:var(--rad-m);
+  padding:1.5rem;
+  align-self:start;
+  box-shadow:0 6px 24px -10px rgba(0,0,0,.08);
+  position:sticky; top:90px;
+}
+@media (max-width:980px){.inventory{position:static; grid-template-columns:repeat(3, 1fr); gap:.6rem;}}
+@media (max-width:540px){.inventory{grid-template-columns:repeat(2, 1fr);}}
+.inventory__title{
+  font-family:var(--serif); font-style:italic; font-size:1.1rem; color:var(--forest);
+  margin-bottom:.7rem; padding-bottom:.8rem; border-bottom:1px solid rgba(0,0,0,0.08);
+  display:flex; align-items:center; justify-content:space-between;
+}
+@media (max-width:980px){.inventory__title{grid-column:1/-1; margin-bottom:0;}}
+.inventory__count{font-family:var(--sans); font-size:.7rem; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; font-style:normal;}
+.waste-item{
+  display:flex; align-items:center; gap:.9rem;
+  padding:.85rem 1rem;
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:12px;
+  cursor:pointer;
+  transition:all var(--t-fast) var(--ease-soft);
+  background:var(--cream-lt);
+  text-align:left;
+  position:relative; overflow:hidden;
+  width:100%;
+}
+@media (max-width:980px){.waste-item{flex-direction:column; gap:.3rem; text-align:center; padding:.7rem .5rem;}}
+.waste-item:hover{transform:translateY(-2px); border-color:var(--terra); box-shadow:0 6px 16px -6px rgba(184,80,66,0.3);}
+.waste-item:active{transform:scale(.96);}
+.waste-item__icon{
+  width:42px; height:42px; border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--cream-dk);
+  font-size:22px;
+  flex-shrink:0;
+}
+.waste-item__name{font-weight:500; font-size:.92rem; color:var(--ink);}
+.waste-item__sub{font-size:.72rem; color:var(--muted);}
+@media (max-width:980px){.waste-item__sub{display:none;}}
+
+/* CHAMBER + COLLECTION */
+.workshop{
+  display:grid;
+  grid-template-rows:auto auto 1fr;
+  gap:2rem;
+}
+.chamber{
+  position:relative;
+  min-height:340px;
+  background:
+    radial-gradient(ellipse at center, var(--cream-lt) 0%, var(--cream) 100%);
+  border:2px dashed rgba(184,80,66,0.25);
+  border-radius:var(--rad-l);
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden;
+  transition:all var(--t-med);
+}
+.chamber.active{
+  border-color:var(--terra);
+  background:radial-gradient(ellipse at center, rgba(184,137,60,0.15) 0%, var(--cream-lt) 70%);
+  animation:chamberPulse 1.4s ease-in-out;
+}
+@keyframes chamberPulse{
+  0%   {box-shadow:0 0 0 0 rgba(184,80,66,.45) inset;}
+  40%  {box-shadow:0 0 80px 4px rgba(184,137,60,.35) inset;}
+  100% {box-shadow:0 0 0 0 rgba(184,80,66,.0) inset;}
+}
+.chamber__empty{
+  text-align:center; padding:2rem; color:var(--muted);
+  display:flex; flex-direction:column; align-items:center; gap:1rem;
+  pointer-events:none;
+}
+.chamber__empty .pulse{
+  width:60px; height:60px; border:2px solid var(--terra); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+}
+.chamber__empty .pulse::before, .chamber__empty .pulse::after{
+  content:''; position:absolute; inset:-4px;
+  border:1px solid var(--terra); border-radius:50%; opacity:0;
+  animation:pulseRing 2.2s var(--ease-out) infinite;
+}
+.chamber__empty .pulse::after{animation-delay:1.1s;}
+@keyframes pulseRing{
+  0%{transform:scale(.9); opacity:.8;}
+  100%{transform:scale(1.8); opacity:0;}
+}
+.chamber__empty .pulse span{font-size:24px;}
+.chamber__empty h4{font-family:var(--serif); font-style:italic; font-size:1.5rem; color:var(--forest);}
+.chamber__empty p{font-size:.9rem; color:var(--muted); max-width:30ch;}
+
+.transform-animation{
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  pointer-events:none;
+}
+.morph{
+  width:120px; height:120px; border-radius:50%;
+  background:radial-gradient(circle at center, var(--gold-lt) 0%, var(--terra) 60%, transparent 80%);
+  filter:blur(0.5px);
+  animation:morphIn 1.4s var(--ease-out);
+}
+@keyframes morphIn{
+  0%   {transform:scale(.3); opacity:0;}
+  50%  {transform:scale(1.4); opacity:1;}
+  80%  {transform:scale(1) rotate(180deg); opacity:.8;}
+  100% {transform:scale(0); opacity:0;}
+}
+
+.reveal-piece{
+  position:absolute; inset:0;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:2rem;
+  text-align:center;
+  animation:pieceReveal 1.1s var(--ease-out);
+}
+@keyframes pieceReveal{
+  0%   {opacity:0; transform:scale(.6);}
+  60%  {opacity:1; transform:scale(1.06);}
+  100% {opacity:1; transform:scale(1);}
+}
+.reveal-piece__visual{
+  width:160px; height:160px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:84px;
+  margin-bottom:1.5rem;
+  filter:drop-shadow(0 12px 30px rgba(31,61,56,0.25));
+}
+.reveal-piece__name{
+  font-family:var(--serif); font-weight:400; font-size:2rem;
+  color:var(--forest); margin-bottom:.4rem;
+}
+.reveal-piece__from{
+  font-family:var(--serif); font-style:italic; color:var(--terra);
+  font-size:1rem; margin-bottom:1rem;
+}
+.reveal-piece__stats{
+  display:flex; gap:2rem; font-size:.78rem; color:var(--muted);
+  letter-spacing:.04em; text-transform:uppercase;
+  margin-bottom:1.2rem;
+}
+.reveal-piece__stats b{display:block; font-family:var(--serif); font-weight:400; font-size:1.4rem; color:var(--ink); text-transform:none; letter-spacing:0;}
+.reveal-piece__hint{
+  font-family:var(--serif); font-style:italic; font-size:.85rem; color:var(--muted);
+}
+
+/* STATS BAR */
+.stats-row{
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:1rem;
+  padding:1.4rem 1.6rem;
+  background:var(--forest);
+  color:var(--cream);
+  border-radius:var(--rad-m);
+}
+@media (max-width:760px){.stats-row{grid-template-columns:repeat(2, 1fr);}}
+.stats-row__cell{
+  display:grid; gap:.2rem;
+}
+.stats-row__lbl{font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; opacity:.7;}
+.stats-row__val{
+  font-family:var(--serif); font-weight:400; font-size:clamp(1.6rem, 2.6vw, 2.2rem);
+  color:var(--cream);
+  font-feature-settings:"tnum";
+  line-height:1;
+}
+.stats-row__val .unit{font-size:.5em; opacity:.6; margin-left:.1em;}
+
+/* COLLECTION */
+.collection{
+  display:grid; gap:1.5rem;
+}
+.collection__title{
+  display:flex; align-items:baseline; justify-content:space-between;
+  flex-wrap:wrap; gap:1rem;
+}
+.collection__title h3{font-family:var(--serif); font-weight:400; color:var(--ink); font-size:clamp(1.6rem, 2.4vw, 2rem);}
+.collection__title h3 b{color:var(--terra); font-style:italic; font-weight:400;}
+.collection__title button{
+  font-family:var(--sans); font-weight:500; font-size:.8rem;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--terra);
+  padding:.6rem 1.2rem; border:1px solid var(--terra); border-radius:99px;
+  transition:all var(--t-fast);
+}
+.collection__title button:hover{background:var(--terra); color:var(--cream);}
+.collection__grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+  gap:1rem;
+  min-height:150px;
+}
+.collection__empty{
+  grid-column:1/-1;
+  text-align:center;
+  padding:2rem;
+  color:var(--muted);
+  font-style:italic;
+  font-family:var(--serif);
+  border:1px dashed rgba(0,0,0,0.1);
+  border-radius:var(--rad-m);
+}
+.piece-card{
+  position:relative;
+  padding:1.5rem 1.4rem 1.2rem;
+  background:var(--white);
+  border-radius:var(--rad-m);
+  border:1px solid rgba(0,0,0,0.08);
+  display:grid; gap:.5rem;
+  animation:cardIn .6s var(--ease-out);
+  transition:transform var(--t-fast), box-shadow var(--t-fast);
+  cursor:default;
+}
+@keyframes cardIn{
+  0%{opacity:0; transform:translateY(18px) scale(.97);}
+  100%{opacity:1; transform:translateY(0) scale(1);}
+}
+.piece-card:hover{transform:translateY(-3px); box-shadow:0 10px 30px -10px rgba(31,61,56,0.18);}
+.piece-card__visual{
+  width:100%; aspect-ratio:1.5/1;
+  background:linear-gradient(135deg, var(--cream-lt), var(--cream-dk));
+  border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:48px;
+  margin-bottom:.4rem;
+  position:relative;
+  overflow:hidden;
+}
+.piece-card__visual::after{
+  content:'';
+  position:absolute; right:8px; bottom:8px;
+  width:18px; height:18px;
+  background:
+    linear-gradient(45deg, var(--ink) 25%, transparent 25%, transparent 75%, var(--ink) 75%),
+    linear-gradient(45deg, var(--ink) 25%, transparent 25%, transparent 75%, var(--ink) 75%);
+  background-size:6px 6px;
+  background-position:0 0, 3px 3px;
+  border-radius:3px;
+  opacity:.4;
+}
+.piece-card__name{font-family:var(--serif); font-weight:400; font-size:1.15rem; color:var(--ink); line-height:1.2;}
+.piece-card__from{font-family:var(--serif); font-style:italic; color:var(--terra); font-size:.82rem;}
+.piece-card__stats{font-size:.72rem; color:var(--muted); display:flex; gap:.8rem; margin-top:.3rem;}
+.piece-card__stats b{color:var(--forest); font-weight:600;}
+
+/* milestone banner */
+.milestone{
+  background:linear-gradient(135deg, var(--gold-lt), var(--gold));
+  color:var(--ink);
+  padding:1.2rem 1.6rem;
+  border-radius:var(--rad-m);
+  font-family:var(--serif); font-style:italic;
+  display:flex; align-items:center; gap:1rem;
+  animation:milestoneIn 0.7s var(--ease-out);
+}
+@keyframes milestoneIn{0%{opacity:0; transform:translateY(-10px) scale(.98);} 100%{opacity:1; transform:none;}}
+.milestone__icon{font-size:1.8rem; flex-shrink:0;}
+.milestone__text{flex:1;}
+.milestone__text b{display:block; font-style:normal; font-family:var(--sans); font-weight:600; font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; color:var(--terra-dk); margin-bottom:.1rem;}
+
+/* ----------------------------------------------------------
+   GALLERY (what hotels could look like)
+   ---------------------------------------------------------- */
+.gallery-section{
+  padding:var(--pad-section) var(--pad-x);
+  background:var(--cream-lt);
+}
+.gallery-section__inner{max-width:var(--content-w); margin:0 auto;}
+.gallery-grid{
+  display:grid; grid-template-columns:repeat(12, 1fr); gap:1rem;
+  margin-top:3rem;
+}
+.gallery-tile{
+  position:relative; overflow:hidden; border-radius:var(--rad-m);
+  aspect-ratio:1/1;
+  background:var(--ink);
+  cursor:pointer;
+}
+.gallery-tile img{
+  width:100%; height:100%; object-fit:cover;
+  transition:transform 1s var(--ease-out), filter .6s;
+  filter:saturate(0.95);
+}
+.gallery-tile:hover img{transform:scale(1.06); filter:saturate(1.1);}
+.gallery-tile__overlay{
+  position:absolute; inset:0; padding:1.6rem;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  background:linear-gradient(180deg, transparent 40%, rgba(10,22,20,0.9) 100%);
+  color:var(--cream);
+}
+.gallery-tile__overlay h4{font-family:var(--serif); font-style:italic; font-weight:400; font-size:1.4rem; margin-bottom:.3rem;}
+.gallery-tile__overlay p{font-size:.85rem; opacity:.85; max-width:none;}
+.gallery-tile__tag{
+  position:absolute; top:1rem; left:1rem;
+  padding:.4rem .8rem; background:rgba(242,233,214,0.95);
+  font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; font-weight:600;
+  color:var(--terra); border-radius:99px;
+}
+/* layout sizes */
+.gallery-tile.gt-wide{grid-column:span 8; aspect-ratio:8/4;}
+.gallery-tile.gt-tall{grid-column:span 4; grid-row:span 2;}
+.gallery-tile.gt-sq  {grid-column:span 4; aspect-ratio:1/1;}
+.gallery-tile.gt-half{grid-column:span 6;}
+@media (max-width:880px){
+  .gallery-tile.gt-wide,.gallery-tile.gt-tall,.gallery-tile.gt-sq,.gallery-tile.gt-half{
+    grid-column:span 12; aspect-ratio:16/10; grid-row:auto;
+  }
+}
+
+/* ----------------------------------------------------------
+   PROVENANCE (QR demo)
+   ---------------------------------------------------------- */
+.provenance{
+  padding:var(--pad-section) var(--pad-x);
+  background:var(--forest-darker);
+  color:var(--cream);
+  position:relative; overflow:hidden;
+}
+.provenance::before{
+  content:''; position:absolute; inset:0;
+  background:url('imgs/qr_phone.jpg') center / cover no-repeat;
+  opacity:.10;
+}
+.provenance__inner{
+  position:relative; z-index:2;
+  max-width:var(--content-w); margin:0 auto;
+  display:grid; grid-template-columns:1.1fr 1fr; gap:5rem; align-items:center;
+}
+@media (max-width:960px){.provenance__inner{grid-template-columns:1fr;}}
+.provenance__copy h2 .accent{color:var(--terra-lt); font-style:italic;}
+
+.qr-demo{
+  position:relative;
+  padding:2.5rem;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:var(--rad-l);
+  backdrop-filter:blur(8px);
+}
+.qr-demo__phone{
+  width:100%; max-width:280px; aspect-ratio:9/19;
+  margin:0 auto;
+  background:var(--ink);
+  border-radius:36px;
+  padding:14px;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.6);
+  position:relative;
+}
+.qr-demo__phone::before{
+  content:''; position:absolute; top:14px; left:50%;
+  transform:translateX(-50%);
+  width:80px; height:18px; background:var(--ink); border-radius:99px;
+  z-index:3;
+}
+.qr-demo__screen{
+  width:100%; height:100%;
+  background:var(--cream-lt); border-radius:24px;
+  display:flex; flex-direction:column;
+  padding:30px 20px 20px;
+  color:var(--ink);
+  overflow:hidden;
+  position:relative;
+}
+.qr-demo__brand{font-family:var(--serif); font-style:italic; color:var(--terra); font-size:1rem; text-align:center; margin-bottom:1.2rem; font-weight:500;}
+.qr-demo__piece{font-family:var(--serif); font-weight:400; font-size:1.4rem; line-height:1.2; margin-bottom:.4rem;}
+.qr-demo__sub{font-size:.7rem; color:var(--muted); margin-bottom:1rem; letter-spacing:.04em;}
+.qr-demo__list{font-size:.78rem; line-height:1.5; color:var(--ink-soft); display:grid; gap:.5rem;}
+.qr-demo__list b{color:var(--terra); font-weight:600;}
+.qr-demo__cta{
+  margin-top:auto; padding:.8rem 1rem;
+  background:var(--forest); color:var(--cream);
+  border-radius:10px; text-align:center; font-size:.7rem;
+  letter-spacing:.1em; text-transform:uppercase; font-weight:600;
+}
+
+/* ----------------------------------------------------------
+   ROADMAP
+   ---------------------------------------------------------- */
+.roadmap{
+  padding:var(--pad-section) var(--pad-x);
+  background:var(--cream); color:var(--ink);
+}
+.roadmap__inner{max-width:var(--content-w); margin:0 auto;}
+.roadmap__grid{
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:1.5rem;
+  margin-top:3.5rem;
+}
+@media (max-width:880px){.roadmap__grid{grid-template-columns:1fr;}}
+.phase-card{
+  position:relative;
+  background:var(--white);
+  border-radius:var(--rad-l);
+  padding:0;
+  overflow:hidden;
+  display:grid;
+  grid-template-rows:auto 1fr;
+  box-shadow:0 12px 40px -20px rgba(31,61,56,0.15);
+  border:1px solid rgba(0,0,0,0.06);
+  transition:transform var(--t-med);
+}
+.phase-card:hover{transform:translateY(-6px);}
+.phase-card__top{
+  padding:1.8rem 2rem;
+  color:var(--cream);
+  display:grid; gap:.4rem;
+}
+.phase-card--p1 .phase-card__top{background:linear-gradient(135deg, var(--terra), var(--terra-dk));}
+.phase-card--p2 .phase-card__top{background:linear-gradient(135deg, #2A4F49, var(--forest-dk));}
+.phase-card--p3 .phase-card__top{background:linear-gradient(135deg, var(--gold-lt), var(--gold));}
+.phase-card--p3 .phase-card__top{color:var(--ink);}
+.phase-card__no{font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; font-weight:600; opacity:.85;}
+.phase-card__period{font-family:var(--serif); font-style:italic; font-size:1.4rem; font-weight:400;}
+.phase-card__body{padding:2rem; display:grid; gap:1rem;}
+.phase-card__body h3{font-family:var(--serif); font-weight:400; color:var(--ink); font-size:1.8rem;}
+.phase-card__body ul{list-style:none; display:grid; gap:.6rem;}
+.phase-card__body li{
+  font-size:.95rem; line-height:1.5; padding-left:1.1rem; position:relative;
+}
+.phase-card__body li::before{
+  content:''; position:absolute; left:0; top:.65em;
+  width:6px; height:6px; background:var(--terra); border-radius:50%;
+}
+
+/* ----------------------------------------------------------
+   CTA
+   ---------------------------------------------------------- */
+.cta{
+  padding:var(--pad-section) var(--pad-x);
+  background:var(--forest-darker);
+  color:var(--cream);
+  position:relative; overflow:hidden;
+}
+.cta::before{
+  content:''; position:absolute; inset:0;
+  background:url('imgs/bali_aerial.jpg') center / cover no-repeat;
+  opacity:.16; filter:blur(1px);
+}
+.cta::after{
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at center, transparent 0%, rgba(10,22,20,0.4) 100%);
+}
+.cta__inner{position:relative; z-index:2; max-width:1000px; margin:0 auto; text-align:center;}
+.cta h2{font-weight:300; font-style:italic;}
+.cta h2 .accent{color:var(--terra-lt); font-style:italic;}
+.cta__rule{width:90px; height:2px; background:var(--terra); margin:2rem auto;}
+.cta p.lede{margin:0 auto 3rem;}
+.cta__group{display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;}
+.btn{
+  display:inline-flex; align-items:center; gap:.6rem;
+  padding:1.1rem 2rem;
+  font-family:var(--sans); font-weight:600;
+  font-size:.85rem; letter-spacing:.12em; text-transform:uppercase;
+  border-radius:99px;
+  transition:all var(--t-med) var(--ease-out);
+  cursor:pointer;
+}
+.btn--primary{background:var(--terra); color:var(--cream); border:1px solid var(--terra);}
+.btn--primary:hover{background:var(--terra-dk); transform:translateY(-2px); box-shadow:0 12px 30px -10px rgba(184,80,66,.5);}
+.btn--ghost{background:transparent; color:var(--cream); border:1px solid rgba(242,233,214,0.4);}
+.btn--ghost:hover{border-color:var(--cream); background:rgba(242,233,214,0.05);}
+
+/* ----------------------------------------------------------
+   FOOTER
+   ---------------------------------------------------------- */
+.footer{
+  padding:3rem var(--pad-x) 2.5rem;
+  background:#0A1614;
+  color:var(--cream);
+  font-size:.85rem;
+  border-top:1px solid rgba(255,255,255,0.04);
+}
+.footer__inner{
+  max-width:var(--content-w); margin:0 auto;
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:1.5rem;
+}
+.footer__brand{font-family:var(--serif); font-weight:400; font-size:1.1rem;}
+.footer__brand b{color:var(--terra-lt); font-weight:600;}
+.footer__meta{font-family:var(--sans); opacity:.65; font-size:.75rem; letter-spacing:.08em; text-transform:uppercase;}
+
+/* ----------------------------------------------------------
+   FLY ANIMATION for waste → chamber
+   ---------------------------------------------------------- */
+.flying{
+  position:fixed; z-index:90;
+  pointer-events:none;
+  font-size:42px;
+  width:54px; height:54px;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--cream-lt);
+  border-radius:14px;
+  box-shadow:0 10px 30px -8px rgba(31,61,56,.35);
+  border:1px solid rgba(0,0,0,0.08);
+}
+
+/* responsive tweaks */
+@media (max-width:560px){
+  .hero{padding:6rem 1.5rem 4rem;}
+  .stats-row{gap:.6rem; padding:1rem;}
+  .stats-row__lbl{font-size:.6rem;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a class="nav__logo" href="#top"><b>Tri Cycle</b> LOOP</a>
+  <div class="nav__links">
+    <a href="#problem">Problem</a>
+    <a href="#loop">The Loop</a>
+    <a href="#designer">Build Yours</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#partner">Partner</a>
+  </div>
+</nav>
+
+<a id="top"></a>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg" id="heroBg"></div>
+  <div class="hero__inner">
+    <span class="hero__eyebrow eyebrow" data-reveal>Group 7 · Innovent 2026 · SUTD × ITS × IPB</span>
+    <h1 class="display" data-reveal data-reveal-delay="1">Tri Cycle<br><span class="accent">LOOP.</span></h1>
+    <span class="hero__rule" data-reveal data-reveal-delay="2"></span>
+    <p class="hero__tagline" data-reveal data-reveal-delay="3">Closed-loop hospitality interiors for Bali. Your hotel's waste comes back as your hotel's furniture, with the story printed on a tag your guests can scan.</p>
+    <div class="hero__meta" data-reveal data-reveal-delay="4">
+      <span>Final Pitch</span>
+      <span>15 May 2026</span>
+      <span>Bali</span>
+    </div>
+  </div>
+  <div class="hero__scroll">Scroll the loop</div>
+</section>
+
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="problem__bg"></div>
+  <div class="problem__inner">
+
+    <div class="section__head">
+      <span class="eyebrow" style="color:var(--gold-lt)" data-reveal>The problem</span>
+      <h2 data-reveal data-reveal-delay="1">Paradise is drowning<br>in its own tourism.</h2>
+      <span class="section__rule"></span>
+    </div>
+
+    <div class="stat-hero">
+      <div class="stat-hero__number" data-reveal>
+        <span data-counter="3400" data-suffix="">0</span>
+      </div>
+      <div class="stat-hero__unit" data-reveal data-reveal-delay="1">tonnes of waste. Every day.</div>
+      <p class="stat-hero__sub" data-reveal data-reveal-delay="2">1.2 million tonnes a year. Tourists generate 3.5× more per capita than residents. Suwung landfill is at full capacity. Indonesia's single-use plastic ban enforces January 2026.</p>
+    </div>
+
+    <div class="problem-grid">
+      <div class="problem-card" data-reveal>
+        <span class="problem-card__no">01</span>
+        <h3>The waste crisis.</h3>
+        <ul>
+          <li>3,400 tonnes a day · SIPSN 2024</li>
+          <li>1.2 million tonnes a year</li>
+          <li>Tourism: 13% of waste, 65% of fresh water</li>
+          <li>6.33M intl + 10M domestic tourists in 2024</li>
+          <li>Suwung landfill at full capacity</li>
+          <li>Single-use plastic ban enforces January 2026</li>
+        </ul>
+      </div>
+      <div class="problem-card" data-reveal data-reveal-delay="1">
+        <span class="problem-card__no">02</span>
+        <h3>The hotel's dilemma.</h3>
+        <ul>
+          <li>Every Bali hotel competes on authenticity and sustainability</li>
+          <li>ESG claims must be defensible. Guests verify in real time.</li>
+          <li>Most fit-outs still import eco-furniture from abroad</li>
+          <li>The provenance story is missing</li>
+          <li>Greenwashing risk on TripAdvisor and TikTok</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="bridge" data-reveal>No one solves both. We do.</p>
+
+  </div>
+</section>
+
+
+<!-- INTRO -->
+<section class="intro" id="intro">
+  <div class="intro__grid">
+    <div class="intro__title">
+      <span class="eyebrow" style="color:var(--terra)" data-reveal>Introducing</span>
+      <div class="brand-mark" data-reveal data-reveal-delay="1">Tri Cycle<br><span class="accent">LOOP.</span></div>
+      <span class="hero__rule" style="background:var(--terra)"></span>
+      <p class="lede" data-reveal data-reveal-delay="2" style="color:var(--ink-soft); max-width:46ch;">A closed-loop interior fit-out service for Bali's hotels, villas, and cafés. The waste your property generates returns as the furniture your guests sit on, with documented provenance you can show them.</p>
+      <blockquote class="intro__quote" data-reveal data-reveal-delay="3">Your waste. Your story. Your guests scan it.</blockquote>
+    </div>
+    <div class="intro__image" data-reveal data-reveal-delay="2">
+      <img src="imgs/wood_interior.jpg" alt="Reclaimed wood interior">
+      <span class="intro__caption">Yesterday's renovation timber. Today's room.</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- THE LOOP -->
+<section class="loop-section" id="loop">
+  <div class="loop-section__inner">
+
+    <div class="section__head">
+      <span class="eyebrow" data-reveal>How the loop works</span>
+      <h2 data-reveal data-reveal-delay="1">Same hotel. Same guests.<br>Same story, returned.</h2>
+      <span class="section__rule"></span>
+    </div>
+
+    <div class="loop-stage" data-reveal>
+      <div class="loop-node loop-node--hotel-out">
+        <span class="loop-node__num">01</span>
+        <div class="loop-node__circle">
+          <div class="loop-node__name">Hotel</div>
+          <div class="loop-node__role">Waste exits</div>
+        </div>
+        <p class="loop-node__desc">Renovation cast-offs, end-of-life linens, plastic, glass, timber.</p>
+        <div class="loop-arrow"></div>
+      </div>
+
+      <div class="loop-node loop-node--rekynd">
+        <span class="loop-node__num">02</span>
+        <div class="loop-node__circle">
+          <div class="loop-node__name">Rekynd</div>
+          <div class="loop-node__role">Collect &amp; sort</div>
+        </div>
+        <p class="loop-node__desc">Our sister company already runs Indonesia's textile waste network.</p>
+        <div class="loop-arrow"></div>
+      </div>
+
+      <div class="loop-node loop-node--tri">
+        <span class="loop-node__num">03</span>
+        <div class="loop-node__circle">
+          <div class="loop-node__name">Tri Cycle</div>
+          <div class="loop-node__role">Transform</div>
+        </div>
+        <p class="loop-node__desc">Balinese artisan workshops design and craft each bespoke piece.</p>
+        <div class="loop-arrow"></div>
+      </div>
+
+      <div class="loop-node loop-node--hotel-in">
+        <span class="loop-node__num">04</span>
+        <div class="loop-node__circle">
+          <div class="loop-node__name">Hotel</div>
+          <div class="loop-node__role">Fit-out returns</div>
+        </div>
+        <p class="loop-node__desc">Furniture, lighting, art, soft furnishings. Documented provenance.</p>
+        <div class="loop-arrow"></div>
+      </div>
+    </div>
+
+    <div class="loop-qr-callout" data-reveal>
+      <div class="qr">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- abstract QR mark -->
+          <rect width="100" height="100" fill="#1B120A"/>
+          <g fill="#F2E9D6">
+            <!-- corners -->
+            <rect x="6" y="6" width="22" height="22"/>
+            <rect x="72" y="6" width="22" height="22"/>
+            <rect x="6" y="72" width="22" height="22"/>
+            <rect x="11" y="11" width="12" height="12" fill="#1B120A"/>
+            <rect x="77" y="11" width="12" height="12" fill="#1B120A"/>
+            <rect x="11" y="77" width="12" height="12" fill="#1B120A"/>
+            <rect x="14" y="14" width="6" height="6"/>
+            <rect x="80" y="14" width="6" height="6"/>
+            <rect x="14" y="80" width="6" height="6"/>
+            <!-- random dots forming pattern -->
+            <rect x="38" y="8"  width="6" height="6"/>
+            <rect x="50" y="8"  width="6" height="6"/>
+            <rect x="38" y="20" width="6" height="6"/>
+            <rect x="56" y="20" width="6" height="6"/>
+            <rect x="44" y="32" width="6" height="6"/>
+            <rect x="62" y="38" width="6" height="6"/>
+            <rect x="50" y="44" width="6" height="6"/>
+            <rect x="38" y="50" width="6" height="6"/>
+            <rect x="56" y="56" width="6" height="6"/>
+            <rect x="68" y="50" width="6" height="6"/>
+            <rect x="38" y="62" width="6" height="6"/>
+            <rect x="62" y="68" width="6" height="6"/>
+            <rect x="50" y="74" width="6" height="6"/>
+            <rect x="74" y="74" width="6" height="6"/>
+            <rect x="86" y="38" width="6" height="6"/>
+            <rect x="86" y="50" width="6" height="6"/>
+            <rect x="86" y="62" width="6" height="6"/>
+            <rect x="32" y="86" width="6" height="6"/>
+            <rect x="44" y="86" width="6" height="6"/>
+            <rect x="62" y="86" width="6" height="6"/>
+            <rect x="80" y="44" width="6" height="6"/>
+            <rect x="68" y="80" width="6" height="6"/>
+          </g>
+        </svg>
+      </div>
+      <div>
+        <h4>Provenance QR on every piece</h4>
+        <p>Guests scan a chair, a lamp, or a tabletop and read what it used to be. Hotels turn every fit-out into a marketing asset.</p>
+      </div>
+    </div>
+
+    <p class="loop-closes-here" data-reveal>the loop closes here <span class="loop-glyph">↺</span></p>
+
+  </div>
+</section>
+
+
+<!-- DESIGNER · the interactive mini-game -->
+<section class="designer" id="designer">
+  <div class="designer__head" data-reveal>
+    <span class="eyebrow">The Designer</span>
+    <h2>Build your <span class="accent">LOOP</span>.</h2>
+    <p class="lede">Click waste your hotel generates. Watch it transform into a piece for your collection. Each piece is one less truck to landfill, one more story for your lobby.</p>
+  </div>
+
+  <div class="designer__stage">
+
+    <!-- INVENTORY -->
+    <aside class="inventory" id="inventory" data-reveal>
+      <div class="inventory__title">
+        <span>Waste Inventory</span>
+        <span class="inventory__count">6 types</span>
+      </div>
+
+      <button class="waste-item" data-waste="plastic">
+        <span class="waste-item__icon" style="background:#cfe6e2">🧴</span>
+        <div>
+          <div class="waste-item__name">Plastic Bottles</div>
+          <div class="waste-item__sub">From mini-bars &amp; restaurants</div>
+        </div>
+      </button>
+
+      <button class="waste-item" data-waste="wood">
+        <span class="waste-item__icon" style="background:#e0d2bb">🪵</span>
+        <div>
+          <div class="waste-item__name">Renovation Wood</div>
+          <div class="waste-item__sub">From property refurb</div>
+        </div>
+      </button>
+
+      <button class="waste-item" data-waste="linen">
+        <span class="waste-item__icon" style="background:#e9d8d3">🛏️</span>
+        <div>
+          <div class="waste-item__name">End-of-life Linens</div>
+          <div class="waste-item__sub">Sheets, towels, robes</div>
+        </div>
+      </button>
+
+      <button class="waste-item" data-waste="glass">
+        <span class="waste-item__icon" style="background:#d6e0d3">🫙</span>
+        <div>
+          <div class="waste-item__name">Glass &amp; Jars</div>
+          <div class="waste-item__sub">From bar &amp; kitchen</div>
+        </div>
+      </button>
+
+      <button class="waste-item" data-waste="ceramic">
+        <span class="waste-item__icon" style="background:#e8d4cc">🟫</span>
+        <div>
+          <div class="waste-item__name">Ceramic Tiles</div>
+          <div class="waste-item__sub">Broken tiles &amp; plates</div>
+        </div>
+      </button>
+
+      <button class="waste-item" data-waste="bamboo">
+        <span class="waste-item__icon" style="background:#dee5cb">🎋</span>
+        <div>
+          <div class="waste-item__name">Bamboo &amp; Wicker</div>
+          <div class="waste-item__sub">Garden trim &amp; offcuts</div>
+        </div>
+      </button>
+    </aside>
+
+    <!-- WORKSHOP -->
+    <div class="workshop">
+
+      <div class="chamber" id="chamber" data-reveal>
+        <div class="chamber__empty" id="chamberEmpty">
+          <div class="pulse"><span>↺</span></div>
+          <h4>Pick a waste type.</h4>
+          <p>The chamber will show what your artisans could craft from it. Click as many as you like to grow your hotel's collection.</p>
+        </div>
+      </div>
+
+      <div class="stats-row" data-reveal>
+        <div class="stats-row__cell">
+          <span class="stats-row__lbl">Pieces created</span>
+          <span class="stats-row__val" id="statPieces">0</span>
+        </div>
+        <div class="stats-row__cell">
+          <span class="stats-row__lbl">Waste diverted</span>
+          <span class="stats-row__val"><span id="statKg">0</span><span class="unit"> kg</span></span>
+        </div>
+        <div class="stats-row__cell">
+          <span class="stats-row__lbl">CO₂ avoided</span>
+          <span class="stats-row__val"><span id="statCo2">0</span><span class="unit"> kg</span></span>
+        </div>
+        <div class="stats-row__cell">
+          <span class="stats-row__lbl">Artisan hours</span>
+          <span class="stats-row__val" id="statHours">0</span>
+        </div>
+      </div>
+
+      <div class="collection">
+        <div class="collection__title">
+          <h3>Your <b>collection</b>.</h3>
+          <button id="resetBtn" type="button">Reset collection</button>
+        </div>
+        <div class="collection__grid" id="collectionGrid">
+          <div class="collection__empty" id="collectionEmpty">Your pieces will appear here.</div>
+        </div>
+      </div>
+
+      <div id="milestoneSlot"></div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="gallery-section__inner">
+
+    <div class="section__head">
+      <span class="eyebrow" data-reveal>What it could look like</span>
+      <h2 data-reveal data-reveal-delay="1">Hotels as <em style="font-style:italic;color:var(--terra);">living archives</em>.</h2>
+      <span class="section__rule"></span>
+      <p class="lede" data-reveal data-reveal-delay="2" style="color:var(--ink-soft);">Each fit-out is a self-portrait. The lobby tells the story of last year's renovation. The cushion in room 204 used to be the linen on a hundred breakfast tables.</p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-tile gt-wide" data-reveal>
+        <img src="imgs/hotel_lobby.jpg" alt="Reclaimed-wood lobby">
+        <span class="gallery-tile__tag">Lobby</span>
+        <div class="gallery-tile__overlay">
+          <h4>The arrival.</h4>
+          <p>Reception desk, lighting clusters, and acoustic panels. All from the previous renovation.</p>
+        </div>
+      </div>
+
+      <div class="gallery-tile gt-tall" data-reveal data-reveal-delay="1">
+        <img src="imgs/villa_pool.jpg" alt="Villa exterior">
+        <span class="gallery-tile__tag">Villa</span>
+        <div class="gallery-tile__overlay">
+          <h4>Pool deck.</h4>
+          <p>Tiles, planters, and loungers. From last season's bar bottles and broken pavers.</p>
+        </div>
+      </div>
+
+      <div class="gallery-tile gt-sq" data-reveal>
+        <img src="imgs/wood_interior.jpg" alt="Wood interior">
+        <span class="gallery-tile__tag">Suite</span>
+        <div class="gallery-tile__overlay">
+          <h4>The headboard.</h4>
+          <p>Reclaimed Balinese timber. Carved by hand in Mas village.</p>
+        </div>
+      </div>
+
+      <div class="gallery-tile gt-sq" data-reveal data-reveal-delay="1">
+        <img src="imgs/recycled_wood.jpg" alt="Recycled wood texture">
+        <span class="gallery-tile__tag">Bar</span>
+        <div class="gallery-tile__overlay">
+          <h4>The bar top.</h4>
+          <p>Renovation offcuts laminated by the same artisan family for three generations.</p>
+        </div>
+      </div>
+
+      <div class="gallery-tile gt-half" data-reveal>
+        <img src="imgs/hotel_reception.jpg" alt="Hotel reception">
+        <span class="gallery-tile__tag">Front of house</span>
+        <div class="gallery-tile__overlay">
+          <h4>The welcome wall.</h4>
+          <p>A mosaic of broken ceramic from kitchen service. Every fragment numbered.</p>
+        </div>
+      </div>
+
+      <div class="gallery-tile gt-half" data-reveal data-reveal-delay="1">
+        <img src="imgs/artisan_hands.jpg" alt="Artisan hands">
+        <span class="gallery-tile__tag">Maker</span>
+        <div class="gallery-tile__overlay">
+          <h4>The hands.</h4>
+          <p>Every piece passes through a Balinese artisan. Premium wages, paid by design.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- PROVENANCE -->
+<section class="provenance" id="provenance">
+  <div class="provenance__inner">
+    <div class="provenance__copy">
+      <span class="eyebrow" style="color:var(--gold-lt)" data-reveal>Provenance, on every piece</span>
+      <h2 data-reveal data-reveal-delay="1">Scan a chair.<br>Read <span class="accent">its life</span>.</h2>
+      <span class="section__rule" data-reveal data-reveal-delay="2"></span>
+      <p class="lede" data-reveal data-reveal-delay="3" style="color:var(--cream); opacity:.85; margin-top:1.4rem;">Every TRI Cycle LOOP piece ships with a QR tag. Guests scan it and see what the piece used to be, who made it, and how much waste it diverted. Hotels turn furniture into marketing, and marketing into trust.</p>
+      <ul style="list-style:none; margin-top:2rem; display:grid; gap:.7rem;">
+        <li style="display:flex; gap:.7rem; align-items:flex-start;" data-reveal data-reveal-delay="4">
+          <span style="color:var(--terra-lt); font-family:var(--serif); font-style:italic;">→</span>
+          <span style="opacity:.85; font-size:.95rem;">Origin material, by weight</span>
+        </li>
+        <li style="display:flex; gap:.7rem; align-items:flex-start;" data-reveal data-reveal-delay="5">
+          <span style="color:var(--terra-lt); font-family:var(--serif); font-style:italic;">→</span>
+          <span style="opacity:.85; font-size:.95rem;">The artisan or workshop that crafted it</span>
+        </li>
+        <li style="display:flex; gap:.7rem; align-items:flex-start;" data-reveal data-reveal-delay="5">
+          <span style="color:var(--terra-lt); font-family:var(--serif); font-style:italic;">→</span>
+          <span style="opacity:.85; font-size:.95rem;">kg of waste diverted and CO₂ avoided</span>
+        </li>
+        <li style="display:flex; gap:.7rem; align-items:flex-start;" data-reveal data-reveal-delay="5">
+          <span style="color:var(--terra-lt); font-family:var(--serif); font-style:italic;">→</span>
+          <span style="opacity:.85; font-size:.95rem;">Shareable to Instagram with a single tap</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="qr-demo" data-reveal data-reveal-delay="2">
+      <div class="qr-demo__phone">
+        <div class="qr-demo__screen">
+          <div class="qr-demo__brand">tri cycle loop</div>
+          <div class="qr-demo__piece">Lounge Chair · No. 0148</div>
+          <div class="qr-demo__sub">Made for The Bisma · Ubud · 2026</div>
+          <div class="qr-demo__list">
+            <div><b>From</b> 4.2 kg reclaimed teak (your 2024 renovation, wing C)</div>
+            <div><b>Linen</b> 1.1 kg end-of-life sheets, room 308</div>
+            <div><b>Avoided</b> 9.6 kg CO₂ · 22 m road transport</div>
+            <div><b>Crafted by</b> Ibu Wayan &amp; Pak Ketut, Mas Village</div>
+            <div><b>Duration</b> 14 days · 38 artisan hours</div>
+          </div>
+          <div class="qr-demo__cta">Share this story</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ROADMAP -->
+<section class="roadmap" id="roadmap">
+  <div class="roadmap__inner">
+
+    <div class="section__head">
+      <span class="eyebrow" data-reveal>Pilot roadmap</span>
+      <h2 data-reveal data-reveal-delay="1">From one hotel<br>to the Bali standard.</h2>
+      <span class="section__rule"></span>
+    </div>
+
+    <div class="roadmap__grid">
+
+      <div class="phase-card phase-card--p1" data-reveal>
+        <div class="phase-card__top">
+          <span class="phase-card__no">Phase 01</span>
+          <span class="phase-card__period">0 to 6 months</span>
+        </div>
+        <div class="phase-card__body">
+          <h3>Pilot.</h3>
+          <ul>
+            <li>One boutique hotel in Ubud</li>
+            <li>First closed-loop fit-out</li>
+            <li>Impact metrics established</li>
+            <li>Provenance system prototype</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-card phase-card--p2" data-reveal data-reveal-delay="1">
+        <div class="phase-card__top">
+          <span class="phase-card__no">Phase 02</span>
+          <span class="phase-card__period">6 to 12 months</span>
+        </div>
+        <div class="phase-card__body">
+          <h3>Scale.</h3>
+          <ul>
+            <li>Five hotel partners</li>
+            <li>First Circular Impact Reports</li>
+            <li>Provenance platform live</li>
+            <li>Earth Check certification</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-card phase-card--p3" data-reveal data-reveal-delay="2">
+        <div class="phase-card__top">
+          <span class="phase-card__no">Phase 03</span>
+          <span class="phase-card__period">12 to 18 months</span>
+        </div>
+        <div class="phase-card__body">
+          <h3>Brand launch.</h3>
+          <ul>
+            <li>Sustainable Fashion Fest 2027</li>
+            <li>International hotel group pipeline</li>
+            <li>B-Corp certification</li>
+            <li>Co-branded merchandise live</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section class="cta" id="partner">
+  <div class="cta__inner">
+    <span class="eyebrow" style="color:var(--gold-lt)" data-reveal>Partner with us</span>
+    <h2 data-reveal data-reveal-delay="1">Your hotel's waste.<br>Your <span class="accent">hotel's story</span>.</h2>
+    <span class="cta__rule"></span>
+    <p class="lede" data-reveal data-reveal-delay="2" style="color:var(--cream); opacity:.85;">We are accepting one boutique partner for the Ubud pilot. If your property is ready to close its loop, we would love to start the conversation.</p>
+    <div class="cta__group" data-reveal data-reveal-delay="3">
+      <a class="btn btn--primary" href="#designer">Try the designer</a>
+      <a class="btn btn--ghost" href="mailto:hello@tricycleloop.id">Start the pilot conversation</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <span class="footer__brand"><b>Tri Cycle</b> LOOP</span>
+    <span class="footer__meta">Group 7 · SUTD ESD · Innovent 2026 · 15 May 2026</span>
+    <span class="footer__meta" style="color:var(--terra-lt);">↺  the loop closes here</span>
+  </div>
+</footer>
+
+
+<script>
+// =========================================================
+// TRI CYCLE LOOP – behavior
+// =========================================================
+
+// ---- NAV scroll state ----
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 80);
+}, {passive:true});
+
+// ---- HERO parallax ----
+const heroBg = document.getElementById('heroBg');
+if (heroBg) {
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y < window.innerHeight * 1.2) {
+      heroBg.style.transform = `translate3d(0, ${y * 0.35}px, 0) scale(${1 + y * 0.0002})`;
+    }
+  }, {passive:true});
+}
+
+// ---- Reveal on scroll ----
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      revealObs.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('[data-reveal]').forEach(el => revealObs.observe(el));
+
+// ---- Counter animations ----
+function animateCounter(el, target, duration = 2000, suffix = '') {
+  const start = performance.now();
+  const step = (now) => {
+    const t = Math.min((now - start) / duration, 1);
+    // easeOutCubic
+    const eased = 1 - Math.pow(1 - t, 3);
+    const value = Math.floor(target * eased);
+    el.textContent = value.toLocaleString() + suffix;
+    if (t < 1) requestAnimationFrame(step);
+    else el.textContent = target.toLocaleString() + suffix;
+  };
+  requestAnimationFrame(step);
+}
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const target = parseInt(entry.target.dataset.counter, 10);
+      const suffix = entry.target.dataset.suffix || '';
+      animateCounter(entry.target, target, 2200, suffix);
+      counterObs.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.4});
+document.querySelectorAll('[data-counter]').forEach(el => counterObs.observe(el));
+
+
+// ============================================================
+// THE DESIGNER – game logic
+// ============================================================
+
+// transformation table: waste type → array of possible pieces.
+// Each piece: { name, icon (emoji), source label, kg range, hours range }
+const TRANSFORMATIONS = {
+  plastic: [
+    {name:"Pendant Lamp Cluster", icon:"💡", from:"68 plastic bottles, lobby mini-bar", kg:[3.2,4.8], hrs:[22,34]},
+    {name:"Wall Art Panel",       icon:"🖼️", from:"crushed plastic, mosaic-set",    kg:[5.5,7.2], hrs:[28,42]},
+    {name:"Outdoor Planter Set",  icon:"🪴", from:"mixed PET, sun-cured pigment",   kg:[6.8,9.5], hrs:[16,26]},
+    {name:"Pool Deck Tile",       icon:"🧩", from:"recycled plastic composite",     kg:[8.0,12.0], hrs:[20,30]},
+    {name:"Light Diffuser",       icon:"🪔", from:"clear PET, hand-pierced",        kg:[2.1,3.4], hrs:[18,28]},
+  ],
+  wood: [
+    {name:"Lounge Chair",         icon:"🪑", from:"reclaimed teak, your renovation, wing C", kg:[6.5,9.2], hrs:[32,46]},
+    {name:"Coffee Table",         icon:"🟫", from:"renovation offcuts, end-grain joinery",  kg:[9.0,14.0], hrs:[38,56]},
+    {name:"Headboard",            icon:"🛌", from:"old door panels, hand-carved",          kg:[11.0,17.0], hrs:[48,72]},
+    {name:"Bar Counter Top",      icon:"🍷", from:"laminated renovation timber",            kg:[18.0,26.0], hrs:[64,90]},
+    {name:"Wall Cladding Panel",  icon:"🪵", from:"vertical reclaimed slats",               kg:[14.0,20.0], hrs:[42,60]},
+    {name:"Side Table",           icon:"🟫", from:"single-trunk Balinese teak offcut",      kg:[4.5,6.8], hrs:[20,32]},
+  ],
+  linen: [
+    {name:"Cushion Set",          icon:"🛋️", from:"end-of-life sheets, room 308",        kg:[1.4,2.4], hrs:[12,18]},
+    {name:"Wall Tapestry",        icon:"🧵", from:"woven linens, indigo dye",            kg:[2.8,4.2], hrs:[26,40]},
+    {name:"Lobby Runner",         icon:"〰️", from:"end-of-life towels, plaited",         kg:[6.0,9.0], hrs:[28,44]},
+    {name:"Spa Robe Refresh",     icon:"🥋", from:"linen scraps, hand-stitched",         kg:[3.2,5.0], hrs:[22,32]},
+    {name:"Decorative Rug",       icon:"🪟", from:"linen + cotton blend, hand-loomed",   kg:[5.2,7.8], hrs:[36,54]},
+  ],
+  glass: [
+    {name:"Pendant Lamp",         icon:"💡", from:"24 glass jars, sand-blasted",        kg:[3.5,5.0], hrs:[20,30]},
+    {name:"Drinking Glassware",   icon:"🥂", from:"wine bottles, kiln-cast",             kg:[2.0,3.4], hrs:[18,28]},
+    {name:"Mosaic Tabletop",      icon:"🟦", from:"crushed amber + clear glass",        kg:[7.0,10.0], hrs:[30,42]},
+    {name:"Candle Holder Cluster",icon:"🕯️", from:"bottle bases, hand-cut",             kg:[1.4,2.2], hrs:[10,18]},
+    {name:"Window Mobile",        icon:"💎", from:"layered glass shards, brass wire",    kg:[1.8,2.8], hrs:[16,24]},
+  ],
+  ceramic: [
+    {name:"Mosaic Feature Wall",  icon:"🟧", from:"broken tile, hand-set in lime",      kg:[14.0,22.0], hrs:[52,78]},
+    {name:"Garden Path Mosaic",   icon:"🪨", from:"plate fragments, terracotta base",   kg:[18.0,28.0], hrs:[36,52]},
+    {name:"Plant Pot Set",        icon:"🪴", from:"ceramic shards, clay-bound",         kg:[5.0,8.0], hrs:[18,28]},
+    {name:"Spa Wash Basin",       icon:"🛁", from:"crushed porcelain, hand-shaped",     kg:[8.0,12.0], hrs:[34,48]},
+    {name:"Wall Relief Art",      icon:"🎨", from:"layered ceramic, gold-leaf accents", kg:[6.5,10.0], hrs:[30,46]},
+  ],
+  bamboo: [
+    {name:"Pendant Basket Lamp",  icon:"🪔", from:"woven bamboo offcuts",               kg:[1.6,2.4], hrs:[18,28]},
+    {name:"Privacy Screen",       icon:"🪟", from:"vertical bamboo, twine-bound",        kg:[7.0,11.0], hrs:[26,40]},
+    {name:"Bar Stool",            icon:"🪑", from:"bamboo + linen seat",                kg:[3.6,5.2], hrs:[22,34]},
+    {name:"Plant Stand",          icon:"🪴", from:"split bamboo, lashed frame",         kg:[2.8,4.2], hrs:[14,22]},
+    {name:"Ceiling Diffuser",     icon:"🌿", from:"interlaced bamboo grid",             kg:[5.5,8.5], hrs:[28,42]},
+  ],
+};
+
+const WASTE_LABEL = {
+  plastic:'Plastic Bottles',
+  wood:'Renovation Wood',
+  linen:'End-of-life Linens',
+  glass:'Glass & Jars',
+  ceramic:'Ceramic Tiles',
+  bamboo:'Bamboo & Wicker'
+};
+const WASTE_ICON = {
+  plastic:'🧴', wood:'🪵', linen:'🛏️', glass:'🫙', ceramic:'🟫', bamboo:'🎋'
+};
+
+let collection = [];        // pieces created
+let pieceCounter = 0;
+let totalKg = 0;
+let totalHrs = 0;
+let isTransforming = false;
+
+const chamber = document.getElementById('chamber');
+const chamberEmpty = document.getElementById('chamberEmpty');
+const collectionGrid = document.getElementById('collectionGrid');
+const collectionEmpty = document.getElementById('collectionEmpty');
+const milestoneSlot = document.getElementById('milestoneSlot');
+
+const statPieces = document.getElementById('statPieces');
+const statKg = document.getElementById('statKg');
+const statCo2 = document.getElementById('statCo2');
+const statHours = document.getElementById('statHours');
+
+function randInRange(min, max){ return +(Math.random() * (max - min) + min).toFixed(1); }
+function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+
+function updateStats(){
+  const co2 = +(totalKg * 1.8).toFixed(1); // ~1.8 kg CO2 per kg waste diverted (heuristic)
+  statPieces.textContent = pieceCounter;
+  statKg.textContent = totalKg.toFixed(1);
+  statCo2.textContent = co2.toFixed(1);
+  statHours.textContent = totalHrs;
+}
+
+function flyToChamber(sourceEl, icon, onArrive){
+  const sourceRect = sourceEl.getBoundingClientRect();
+  const targetRect = chamber.getBoundingClientRect();
+
+  const flying = document.createElement('div');
+  flying.className = 'flying';
+  flying.textContent = icon;
+  flying.style.left = (sourceRect.left + sourceRect.width/2 - 27) + 'px';
+  flying.style.top  = (sourceRect.top  + sourceRect.height/2 - 27) + 'px';
+  document.body.appendChild(flying);
+
+  const targetX = targetRect.left + targetRect.width/2 - 27;
+  const targetY = targetRect.top  + targetRect.height/2 - 27;
+
+  requestAnimationFrame(() => {
+    flying.style.transition = 'transform 0.85s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.3s 0.55s';
+    flying.style.transform = `translate(${targetX - parseFloat(flying.style.left)}px, ${targetY - parseFloat(flying.style.top)}px) scale(0.4) rotate(20deg)`;
+    flying.style.opacity = '0';
+  });
+
+  setTimeout(() => {
+    flying.remove();
+    onArrive && onArrive();
+  }, 880);
+}
+
+function pickPieceFor(wasteType){
+  const opts = TRANSFORMATIONS[wasteType];
+  // weight: prefer pieces not yet in collection
+  const fresh = opts.filter(p => !collection.some(c => c.name === p.name && c.wasteType === wasteType));
+  return pick(fresh.length ? fresh : opts);
+}
+
+function showTransformAnimation(){
+  // clear chamber and show the morph
+  chamber.innerHTML = '';
+  const morphWrap = document.createElement('div');
+  morphWrap.className = 'transform-animation';
+  morphWrap.innerHTML = '<div class="morph"></div>';
+  chamber.appendChild(morphWrap);
+}
+
+function showRevealedPiece(piece, wasteType, kg, hrs, idx){
+  chamber.innerHTML = '';
+  const r = document.createElement('div');
+  r.className = 'reveal-piece';
+  r.innerHTML = `
+    <div class="reveal-piece__visual">${piece.icon}</div>
+    <div class="reveal-piece__name">${piece.name}</div>
+    <div class="reveal-piece__from">made from · ${piece.from}</div>
+    <div class="reveal-piece__stats">
+      <div><b>${kg.toFixed(1)} kg</b><span>waste diverted</span></div>
+      <div><b>${hrs}</b><span>artisan hours</span></div>
+      <div><b>#${String(idx).padStart(4,'0')}</b><span>provenance</span></div>
+    </div>
+    <div class="reveal-piece__hint">Click another waste type to keep building</div>
+  `;
+  chamber.appendChild(r);
+}
+
+function addToCollection(piece, wasteType, kg, hrs, idx){
+  // Remove the empty state if first
+  if (collectionEmpty.parentNode) collectionEmpty.remove();
+
+  const card = document.createElement('div');
+  card.className = 'piece-card';
+  card.innerHTML = `
+    <div class="piece-card__visual">${piece.icon}</div>
+    <div class="piece-card__name">${piece.name}</div>
+    <div class="piece-card__from">${WASTE_LABEL[wasteType]}</div>
+    <div class="piece-card__stats">
+      <div><b>${kg.toFixed(1)} kg</b> diverted</div>
+      <div><b>#${String(idx).padStart(4,'0')}</b></div>
+    </div>
+  `;
+  collectionGrid.appendChild(card);
+}
+
+function maybeMilestone(){
+  const milestones = {
+    1: ['First piece','You started the loop. Every fit-out begins with one chair.'],
+    3: ['Coffee corner complete','Three pieces in. The lobby coffee nook is taking shape.'],
+    5: ['Lobby complete','Five pieces. A guest just photographed your work for Instagram.'],
+    8: ['Spa wing ready','Eight pieces. A second hotel just asked for a tour.'],
+    12:['Full hotel collection','Twelve pieces. Your circular fit-out is on the Sustainable Fashion Fest stage.'],
+    20:['Industry standard','Twenty pieces. Bali boutique hotels are now copying your model.'],
+  };
+  const m = milestones[pieceCounter];
+  if (!m) return;
+  milestoneSlot.innerHTML = `
+    <div class="milestone">
+      <div class="milestone__icon">↺</div>
+      <div class="milestone__text"><b>${m[0]}</b>${m[1]}</div>
+    </div>
+  `;
+  setTimeout(() => {
+    const el = milestoneSlot.querySelector('.milestone');
+    if (el) el.style.transition = 'opacity 0.6s';
+  }, 100);
+}
+
+function resetChamberToEmpty(){
+  chamber.innerHTML = '';
+  chamber.appendChild(chamberEmpty);
+  chamber.classList.remove('active');
+}
+
+function handleWasteClick(button){
+  if (isTransforming) return;
+  isTransforming = true;
+  const wasteType = button.dataset.waste;
+  const icon = WASTE_ICON[wasteType];
+
+  flyToChamber(button, icon, () => {
+    chamber.classList.add('active');
+    showTransformAnimation();
+
+    setTimeout(() => {
+      const piece = pickPieceFor(wasteType);
+      const kg = randInRange(piece.kg[0], piece.kg[1]);
+      const hrs = Math.round(randInRange(piece.hrs[0], piece.hrs[1]));
+
+      pieceCounter += 1;
+      totalKg += kg;
+      totalHrs += hrs;
+      collection.push({...piece, wasteType, kg, hrs, idx:pieceCounter});
+
+      showRevealedPiece(piece, wasteType, kg, hrs, pieceCounter);
+      addToCollection(piece, wasteType, kg, hrs, pieceCounter);
+      updateStats();
+      maybeMilestone();
+
+      isTransforming = false;
+    }, 1300);
+  });
+}
+
+document.querySelectorAll('.waste-item').forEach(btn => {
+  btn.addEventListener('click', () => handleWasteClick(btn));
+});
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  if (!collection.length) return;
+  if (!confirm('Reset your collection? This clears all pieces and stats.')) return;
+  collection = []; pieceCounter = 0; totalKg = 0; totalHrs = 0;
+  collectionGrid.innerHTML = '';
+  collectionGrid.appendChild(collectionEmpty);
+  milestoneSlot.innerHTML = '';
+  resetChamberToEmpty();
+  updateStats();
+});
+
+// init
+updateStats();
+</script>
+
+</body>
+</html>
